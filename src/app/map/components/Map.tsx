@@ -5,7 +5,6 @@ import { Map } from "react-map-gl/maplibre";
 import DeckGL from "@deck.gl/react";
 import { Tile3DLayer } from "@deck.gl/geo-layers";
 import { Tiles3DLoader } from "@loaders.gl/3d-tiles";
-import { CesiumIonLoader } from "@loaders.gl/3d-tiles";
 import type { MapViewState } from "@deck.gl/core";
 import type { Tileset3D } from "@loaders.gl/tiles";
 import "maplibre-gl/dist/maplibre-gl.css";
