@@ -16,10 +16,11 @@ import type { GeoJSON } from "geojson";
 interface Props {
   defaultPointSize: number;
   waterLevel: number;
+  waterOpacity: number;
 }
 
 const MapLibre: React.FC<Props> = (props) => {
-  const { defaultPointSize, waterLevel } = props;
+  const { defaultPointSize, waterLevel, waterOpacity } = props;
 
   const [initialViewState, setInitialViewState] = React.useState<MapViewState>({
     longitude: 10,
@@ -73,7 +74,7 @@ const MapLibre: React.FC<Props> = (props) => {
   const waterLayer = new GeoJsonLayer({
     id: "geojson",
     data: Data as GeoJSON,
-    opacity: 0.6,
+    opacity: waterOpacity,
     stroked: false,
     filled: waterLevel > 0,
     extruded: true,
