@@ -3,17 +3,28 @@
 import React from "react";
 import { Map } from "react-map-gl/maplibre";
 import DeckGL from "@deck.gl/react";
+import { GeoJsonLayer } from "@deck.gl/layers";
 import { Tile3DLayer } from "@deck.gl/geo-layers";
 import { Tiles3DLoader } from "@loaders.gl/3d-tiles";
 import type { MapViewState } from "@deck.gl/core";
 import type { Tileset3D } from "@loaders.gl/tiles";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-const MapLibre: React.FC = () => {
+import Data from "../data/test.json";
+import type { GeoJSON } from "geojson";
+
+interface Props {
+  defaultPointSize: number;
+  waterLevel: number;
+}
+
+const MapLibre: React.FC<Props> = (props) => {
+  const { defaultPointSize, waterLevel } = props;
+
   const [initialViewState, setInitialViewState] = React.useState<MapViewState>({
     longitude: 10,
     latitude: 50,
-    zoom: 2,
+    zoom: 17,
   });
 
   // const layer =  new Tile3DLayer({
@@ -40,26 +51,45 @@ const MapLibre: React.FC = () => {
   //     pointSize: 2,
   //   });
 
-  const layer = new Tile3DLayer({
+  const pointCloudLayer = new Tile3DLayer({
     data: "/cesium-tiles/tileset.json",
     loaders: [Tiles3DLoader],
     onTilesetLoad: (tileset: Tileset3D) => {
       // Recenter to cover the tileset
-      const { cartographicCenter, zoom } = tileset;
+      const { cartographicCenter } = tileset;
       if (cartographicCenter) {
         setInitialViewState({
           longitude: cartographicCenter[0],
           latitude: cartographicCenter[1],
-          zoom,
+          zoom: 17,
+          bearing: 46,
+          pitch: 58,
         });
       }
     },
-    pointSize: 2,
+    pointSize: defaultPointSize ?? 2,
+  });
+
+  const waterLayer = new GeoJsonLayer({
+    id: "geojson",
+    data: Data as GeoJSON,
+    opacity: 0.6,
+    stroked: false,
+    filled: waterLevel > 0,
+    extruded: true,
+    wireframe: true,
+    getElevation: () => waterLevel,
+    getFillColor: () => [0, 0, 100],
+    getLineColor: [255, 255, 255],
+    pickable: true,
   });
 
   return (
-    <DeckGL initialViewState={initialViewState} controller layers={[layer]}>
-      {/* <Map mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json" /> */}
+    <DeckGL
+      initialViewState={initialViewState}
+      controller
+      layers={[pointCloudLayer, waterLayer]}
+    >
       <Map
         mapStyle={{
           version: 8,
