@@ -12,7 +12,7 @@ function MapPage() {
   const paramsWaterLevel = params.get("waterLevel");
 
   const defaultPointSize =
-    paramsPointSize !== null ? parseInt(paramsPointSize) : 2;
+    paramsPointSize !== null ? parseFloat(paramsPointSize) : 2.0;
 
   const waterLevel =
     paramsWaterLevel !== null ? parseFloat(paramsWaterLevel) : 0.0;
