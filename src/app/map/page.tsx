@@ -11,6 +11,7 @@ function MapPage() {
   const paramsPointSize = params.get("pointSize");
   const paramsWaterLevel = params.get("waterLevel");
   const paramsWaterOpacity = params.get("waterOpacity");
+  const paramsWaterColor = params.get("waterColor");
 
   const defaultPointSize =
     paramsPointSize !== null ? parseFloat(paramsPointSize) : 2.0;
@@ -21,11 +22,14 @@ function MapPage() {
   const waterOpacity =
     paramsWaterOpacity !== null ? parseFloat(paramsWaterOpacity) : 0.6;
 
+  const waterColor = paramsWaterColor ?? "59d2fe";
+
   return (
     <Map
       defaultPointSize={defaultPointSize}
       waterLevel={waterLevel}
       waterOpacity={waterOpacity}
+      waterColor={waterColor}
     />
   );
 }

@@ -17,10 +17,19 @@ interface Props {
   defaultPointSize: number;
   waterLevel: number;
   waterOpacity: number;
+  waterColor: string;
 }
 
+const hexToRGB = (hexValue: string): [number, number, number] => {
+  const numericValue = parseInt(hexValue, 16);
+  const r = (numericValue >> 16) & 0xff;
+  const g = (numericValue >> 8) & 0xff;
+  const b = numericValue & 0xff;
+  return [r, g, b];
+};
+
 const MapLibre: React.FC<Props> = (props) => {
-  const { defaultPointSize, waterLevel, waterOpacity } = props;
+  const { defaultPointSize, waterLevel, waterOpacity, waterColor } = props;
 
   const [initialViewState, setInitialViewState] = React.useState<MapViewState>({
     longitude: 10,
@@ -80,7 +89,7 @@ const MapLibre: React.FC<Props> = (props) => {
     extruded: true,
     wireframe: true,
     getElevation: () => waterLevel,
-    getFillColor: () => [0, 0, 100],
+    getFillColor: () => hexToRGB(waterColor),
     getLineColor: [255, 255, 255],
     pickable: true,
   });
