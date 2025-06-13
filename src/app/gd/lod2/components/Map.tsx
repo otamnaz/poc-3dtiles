@@ -8,17 +8,7 @@ import type { MapViewState } from "@deck.gl/core";
 import type { Tileset3D } from "@loaders.gl/tiles";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-interface Props {}
-
-const hexToRGB = (hexValue: string): [number, number, number] => {
-  const numericValue = parseInt(hexValue, 16);
-  const r = (numericValue >> 16) & 0xff;
-  const g = (numericValue >> 8) & 0xff;
-  const b = numericValue & 0xff;
-  return [r, g, b];
-};
-
-const MapLibre: React.FC<Props> = (props) => {
+const MapLibre: React.FC = () => {
   const [initialViewState, setInitialViewState] = React.useState<MapViewState>({
     longitude: 10,
     latitude: 50,
@@ -31,11 +21,13 @@ const MapLibre: React.FC<Props> = (props) => {
     onTilesetLoad: (tileset: Tileset3D) => {
       // Recenter to cover the tileset
       const { cartographicCenter, zoom } = tileset;
-      setInitialViewState({
-        longitude: cartographicCenter!![0],
-        latitude: cartographicCenter!![1],
-        zoom,
-      });
+      if (cartographicCenter) {
+        setInitialViewState({
+          longitude: cartographicCenter[0],
+          latitude: cartographicCenter[1],
+          zoom,
+        });
+      }
     },
   });
 
