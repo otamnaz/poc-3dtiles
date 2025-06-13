@@ -1,0 +1,127 @@
+{
+    "asset": {
+        "version": "1.0",
+        "extras": {
+            "ion": {
+                "georeferenced": true
+            },
+            "cesium": {
+                "credits": [
+                    {
+                        "html": "<html>Gaia3D</html>",
+                        "showOnScreen": true
+                    }
+                ]
+            }
+        }
+    },
+    "geometricError": 550.92055836,
+    "root": {
+        "boundingVolume": {
+            "region": [
+                1.79503649,
+                0.2867404,
+                1.79510534,
+                0.28679593,
+                146.33119607,
+                191.04056448
+            ]
+        },
+        "refine": "REPLACE",
+        "geometricError": 550.92055836,
+        "children": [
+            {
+                "boundingVolume": {
+                    "region": [
+                        1.79503649,
+                        0.2867404,
+                        1.79510534,
+                        0.28679593,
+                        146.33119607,
+                        191.04056448
+                    ]
+                },
+                "refine": "REPLACE",
+                "geometricError": 8.1,
+                "children": [
+                    {
+                        "boundingVolume": {
+                            "region": [
+                                1.79503649,
+                                0.2867404,
+                                1.79510534,
+                                0.28679593,
+                                146.33119607,
+                                191.04056448
+                            ]
+                        },
+                        "refine": "REPLACE",
+                        "geometricError": 4.1,
+                        "children": [
+                            {
+                                "boundingVolume": {
+                                    "region": [
+                                        1.79503649,
+                                        0.2867404,
+                                        1.79510534,
+                                        0.28679593,
+                                        146.33119607,
+                                        191.04056448
+                                    ]
+                                },
+                                "refine": "REPLACE",
+                                "geometricError": 2.1,
+                                "children": [
+                                    {
+                                        "boundingVolume": {
+                                            "region": [
+                                                1.79503649,
+                                                0.2867404,
+                                                1.79510534,
+                                                0.28679593,
+                                                146.33119607,
+                                                191.04056448
+                                            ]
+                                        },
+                                        "refine": "REPLACE",
+                                        "geometricError": 0.1,
+                                        "content": {
+                                            "uri": "data/RC0000.b3dm"
+                                        }
+                                    }
+                                ],
+                                "content": {
+                                    "uri": "data/RC000.b3dm"
+                                }
+                            }
+                        ],
+                        "content": {
+                            "uri": "data/RC00.b3dm"
+                        }
+                    }
+                ],
+                "content": {
+                    "uri": "data/RC0.b3dm"
+                }
+            }
+        ],
+        "transform": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -2.9099183966040973,
+            12.756528859741339,
+            3.8584900331002694,
+            1
+        ]
+    }
+}

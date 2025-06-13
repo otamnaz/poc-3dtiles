@@ -1,0 +1,109 @@
+{
+    "asset": {
+        "version": "1.0",
+        "extras": {
+            "ion": {
+                "georeferenced": true
+            },
+            "cesium": {
+                "credits": [
+                    {
+                        "html": "<html>Gaia3D</html>",
+                        "showOnScreen": true
+                    }
+                ]
+            }
+        }
+    },
+    "geometricError": 1084.09775754,
+    "root": {
+        "boundingVolume": {
+            "region": [
+                1.79495884,
+                0.28662909,
+                1.79509552,
+                0.28673756,
+                149.22250857,
+                200.52117021
+            ]
+        },
+        "refine": "REPLACE",
+        "geometricError": 1084.09775754,
+        "children": [
+            {
+                "boundingVolume": {
+                    "region": [
+                        1.79495884,
+                        0.28662909,
+                        1.79509552,
+                        0.28673756,
+                        149.22250857,
+                        200.52117021
+                    ]
+                },
+                "refine": "REPLACE",
+                "geometricError": 8.1,
+                "children": [
+                    {
+                        "boundingVolume": {
+                            "region": [
+                                1.79495884,
+                                0.28662909,
+                                1.79509552,
+                                0.28673756,
+                                149.22250857,
+                                200.52117021
+                            ]
+                        },
+                        "refine": "REPLACE",
+                        "geometricError": 4.1,
+                        "children": [
+                            {
+                                "boundingVolume": {
+                                    "region": [
+                                        1.79495884,
+                                        0.28662909,
+                                        1.79509552,
+                                        0.28673756,
+                                        149.22250857,
+                                        200.52117021
+                                    ]
+                                },
+                                "refine": "REPLACE",
+                                "geometricError": 2.1,
+                                "children": [
+                                    {
+                                        "boundingVolume": {
+                                            "region": [
+                                                1.79495884,
+                                                0.28662909,
+                                                1.79509552,
+                                                0.28673756,
+                                                149.22250857,
+                                                200.52117021
+                                            ]
+                                        },
+                                        "refine": "REPLACE",
+                                        "geometricError": 0.1,
+                                        "content": {
+                                            "uri": "data/RC0000.b3dm"
+                                        }
+                                    }
+                                ],
+                                "content": {
+                                    "uri": "data/RC000.b3dm"
+                                }
+                            }
+                        ],
+                        "content": {
+                            "uri": "data/RC00.b3dm"
+                        }
+                    }
+                ],
+                "content": {
+                    "uri": "data/RC0.b3dm"
+                }
+            }
+        ]
+    }
+}
